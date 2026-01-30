@@ -1,8 +1,8 @@
 SET SERVEROUTPUT ON;
 
-==========================================================
+--==========================================================
 --TEST 1: OBSLUGA BLEDOW I WALIDACJA
-==========================================================
+--==========================================================
 
 -- 1.1. Próba sprzedaży biletu z ujemną ceną
 BEGIN
@@ -18,9 +18,9 @@ BEGIN
 END;
 /
 
-==========================================================
+--==========================================================
 --TEST 2: POPRAWNE OPERACJE CRUD 
-==========================================================
+--==========================================================
 
 -- 2.1. Dodanie nowego klienta
 INSERT INTO customers (first_name, last_name, email) 
@@ -52,9 +52,9 @@ END;
 -- Weryfikacja zmiany
 SELECT customer_id, first_name, email FROM customers WHERE email = 'zmieniony.email@kino.pl';
 
-==========================================================
+--==========================================================
 --TEST 3: ARCHIWIZACJA I TRIGGERY 
-==========================================================
+--==========================================================
 DECLARE
   v_ticket_to_delete NUMBER;
 BEGIN
@@ -68,9 +68,9 @@ END;
 
 SELECT ticket_id, price, deleted_at FROM tickets_archive ORDER BY deleted_at DESC FETCH FIRST 5 ROWS ONLY;
 
-==========================================================
+--==========================================================
 --TEST 4: RAPORTY I FUNKCJE OKIENKOWE 
-==========================================================
+--==========================================================
 -- 4.1. Generowanie raportu miesięcznego
 BEGIN
   DBMS_OUTPUT.PUT_LINE('--- Generowanie raportu miesiecznego ---');
@@ -91,9 +91,9 @@ JOIN tickets t ON c.customer_id = t.customer_id
 GROUP BY c.first_name, c.last_name, c.customer_id;
 
 
-==========================================================
+--==========================================================
 --TEST 5: DODATKOWE FUNKCJE I WIDOKI
-==========================================================
+--==========================================================
 --- 5.1. Test Funkcji: Sprawdzenie wolnych miejsc na seansach ---
 SELECT 
     s.seance_id, 
