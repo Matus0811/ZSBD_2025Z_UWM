@@ -90,3 +90,15 @@ SELECT
 FROM customers c
 JOIN tickets t ON c.customer_id = t.customer_id
 GROUP BY c.first_name, c.last_name, c.customer_id;
+
+
+==========================================================
+--TEST 5: DODATKOWE FUNKCJE I WIDOKI
+==========================================================
+--- 5.1. Test Funkcji: Sprawdzenie wolnych miejsc na seansach ---
+SELECT 
+    s.seance_id, 
+    m.title,
+    get_free_seats(s.seance_id) AS wolne_miejsca 
+FROM seances s
+JOIN movies m ON s.movie_id = m.movie_id;
