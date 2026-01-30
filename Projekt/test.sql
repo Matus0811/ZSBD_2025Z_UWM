@@ -4,14 +4,14 @@ SET SERVEROUTPUT ON;
 --TEST 1: OBSLUGA BLEDOW I WALIDACJA
 ==========================================================
 
--- 1.1. Próba sprzedaży biletu z ujemną ceną (oczekiwany BŁĄD walidacji)
+-- 1.1. Próba sprzedaży biletu z ujemną ceną
 BEGIN
   DBMS_OUTPUT.PUT_LINE('--- Proba sprzedazy biletu za -50 PLN ---');
   sell_ticket(p_seance_id => 1, p_customer_id => 1, p_price => -50);
 END;
 /
 
--- 1.2. Próba usunięcia nieistniejącego biletu (oczekiwany komunikat o braku rekordu)
+-- 1.2. Próba usunięcia nieistniejącego biletu
 BEGIN
   DBMS_OUTPUT.PUT_LINE('--- Proba usuniecia biletu ID 99999 ---');
   delete_ticket(99999);
@@ -66,7 +66,6 @@ BEGIN
 END;
 /
 
-PROMPT --- Zawartosc archiwum:
 SELECT ticket_id, price, deleted_at FROM tickets_archive ORDER BY deleted_at DESC FETCH FIRST 5 ROWS ONLY;
 
 ==========================================================
