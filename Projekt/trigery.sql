@@ -1,5 +1,5 @@
 ------------------------------------------------------------
--- Trigger archiwizujący usunięte bilety
+-- Trigger archiwizujący usunięte bilety 
 ------------------------------------------------------------
 CREATE OR REPLACE TRIGGER trg_archive_ticket
 BEFORE DELETE ON tickets

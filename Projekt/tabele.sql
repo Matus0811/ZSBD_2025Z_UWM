@@ -73,7 +73,7 @@ CREATE TABLE tickets (
 );
 
 ------------------------------------------------------------
--- Tworzenie tabeli TICKETS_ARCHIVE
+-- Tworzenie tabeli TICKETS_ARCHIVE 
 ------------------------------------------------------------
 CREATE TABLE tickets_archive (
   ticket_id   NUMBER,

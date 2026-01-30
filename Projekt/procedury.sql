@@ -28,7 +28,7 @@ END;
 /
 
 ------------------------------------------------------------
--- Procedura usuwania biletu
+-- Procedura usuwania biletu 
 ------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE delete_ticket (
   p_ticket_id IN NUMBER

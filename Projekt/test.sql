@@ -5,7 +5,7 @@ CO SPRAWDZAMY W TYM SKRYPCIE:
 2. Obsługę wyjątków (próba usunięcia nieistniejącego rekordu).
 3. Operacje CRUD (dodawanie, sprzedaż, aktualizacja maila).
 4. Automatyzację (czy Trigger poprawnie archiwizuje usuwane dane).
-5. Funkcje analityczne/okienkowe (wymagany ranking klientów).
+5. Funkcje analityczne/okienkowe (wymagany ranking klientów). 
 --------------------------------------------------------------------------------------
 */
 
@@ -81,7 +81,7 @@ PROMPT --- Zawartosc archiwum (powinien pojawic sie usuniety bilet):
 SELECT ticket_id, price, deleted_at FROM tickets_archive ORDER BY deleted_at DESC FETCH FIRST 5 ROWS ONLY;
 
 ==========================================================
---TEST 4: RAPORTY I FUNKCJE OKIENKOWE (Window Functions)
+--TEST 4: RAPORTY I FUNKCJE OKIENKOWE 
 ==========================================================
 -- 4.1. Generowanie raportu miesięcznego
 BEGIN
@@ -92,7 +92,7 @@ END;
 
 SELECT * FROM monthly_sales_report;
 
-PROMPT --- Ranking klientow wg wydanych kwot (Funkcja Okienkowa RANK) ---
+--- Ranking klientow wg wydanych kwot ---
 
 SELECT 
     c.first_name || ' ' || c.last_name AS klient,
