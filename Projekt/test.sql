@@ -102,3 +102,6 @@ SELECT
     get_free_seats(s.seance_id) AS wolne_miejsca 
 FROM seances s
 JOIN movies m ON s.movie_id = m.movie_id;
+
+--- 5.2. Test Widoku: Wyświetlenie czytelnego repertuaru ---
+SELECT * FROM v_repertoire_info;
