@@ -1,14 +1,3 @@
-/*
---------------------------------------------------------------------------------------
-CO SPRAWDZAMY W TYM SKRYPCIE:
-1. Walidację danych (blokada ujemnej ceny).
-2. Obsługę wyjątków (próba usunięcia nieistniejącego rekordu).
-3. Operacje CRUD (dodawanie, sprzedaż, aktualizacja maila).
-4. Automatyzację (czy Trigger poprawnie archiwizuje usuwane dane).
-5. Funkcje analityczne/okienkowe (wymagany ranking klientów). 
---------------------------------------------------------------------------------------
-*/
-
 SET SERVEROUTPUT ON;
 
 ==========================================================
@@ -30,7 +19,7 @@ END;
 /
 
 ==========================================================
---TEST 2: POPRAWNE OPERACJE CRUD (Create, Update)
+--TEST 2: POPRAWNE OPERACJE CRUD 
 ==========================================================
 
 -- 2.1. Dodanie nowego klienta
@@ -49,7 +38,7 @@ BEGIN
 END;
 /
 
--- 2.3. Aktualizacja adresu email (Nowa procedura)
+-- 2.3. Aktualizacja adresu email
 DECLARE
   v_cust_id NUMBER;
 BEGIN
@@ -64,7 +53,7 @@ END;
 SELECT customer_id, first_name, email FROM customers WHERE email = 'zmieniony.email@kino.pl';
 
 ==========================================================
---TEST 3: ARCHIWIZACJA I TRIGGERY (Delete)
+--TEST 3: ARCHIWIZACJA I TRIGGERY 
 ==========================================================
 DECLARE
   v_ticket_to_delete NUMBER;
@@ -77,7 +66,7 @@ BEGIN
 END;
 /
 
-PROMPT --- Zawartosc archiwum (powinien pojawic sie usuniety bilet):
+PROMPT --- Zawartosc archiwum:
 SELECT ticket_id, price, deleted_at FROM tickets_archive ORDER BY deleted_at DESC FETCH FIRST 5 ROWS ONLY;
 
 ==========================================================
